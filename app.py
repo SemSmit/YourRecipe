@@ -4,11 +4,11 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 
-app.secret_key = os.getenv('SECRET_KEY')
 app = Flask(__name__)
+# app.secret_key = os.getenv('SECRET_KEY')
 
-client = pymongo.MongoClient("mongodb+srv://semsmit:<password>@yourrecipe-ngnut.mongodb.net/YourRecipe?retryWrites=true&w=majority")
-db = client.get_database('YourRecipe')
+# client = pymongo.MongoClient("mongodb+srv://semsmit:<password>@yourrecipe-ngnut.mongodb.net/YourRecipe?retryWrites=true&w=majority")
+# db = client.get_database('YourRecipe')
 
 @app.route('/')
 def index():

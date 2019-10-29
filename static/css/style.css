@@ -1,4 +1,107 @@
 body{
-	background-color: red;
+	background-color: #FAEDCA;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	color: #353535;
+	font-family: 'Nunito', serif;
+}
+
+h1,h2,h3,h4,h5{
+	font-family: 'Lora', sans-serif;
+	margin: 5px 0;
+}
+
+h1{
 	font-size: 30px;
+}
+
+h2{
+	font-size: 22px;
+}
+
+h3{
+	font-size: 20px;
+}
+
+
+/*________________________HEADER__________________________*/
+
+header{
+	background-color: #C1DBB3;
+	width: 100vw;
+	min-height: 60px;
+	border-bottom: 0.5px solid #2c8021;
+}
+
+header .title{
+	margin: 0;
+	font-size: 20px;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 900;
+    color: #2c8021;
+}
+
+.sidenav{
+	background-color: #FAEDCA;
+}
+
+.sidenav .user-view .circle {
+    height: 35px;
+    width: auto;
+    transform: translateX(-6px);
+}
+
+.sidenav .user-view .name {
+    margin-top: 12px;
+    font-weight: 900;
+    color: #2c8021;
+}
+
+.sidenav-trigger i{
+	font-weight: 900;
+    color: #2c8021;
+}
+
+.wrapper{
+	display: flex;
+	flex-wrap: nowrap;
+	height: 60px;
+}
+
+.headerimg{
+	height: 40px;
+	display: block;
+}
+
+.wrapper > div{
+	flex-basis: 33%;
+	height: 100%;
+	display: inline-table;
+}
+
+.wrapper > div:nth-of-type(1){
+	padding-left: 2rem;
+    padding-top: 0.5rem;
+}
+.wrapper > div:nth-of-type(3){
+	padding-left: 3rem;
+}
+
+.wrapper > div > *{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.sidenav .subheader{
+	font-size: 12px;
+}
+
+
+
+/*________________________MAIN__________________________*/
+
+
+.inner{
+	margin: 2rem 2rem;
 }

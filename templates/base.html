@@ -11,6 +11,10 @@
 
 
         <p>YourRecipe</p>
+            {% for recipe in recipes %}
+                {{recipe.name}}
+            {% endfor %}
+                
 
 
 
@@ -18,5 +22,6 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="{{url_for('static', filename='js/functions.js')}}"></script>
+            
     </body>
 </html>

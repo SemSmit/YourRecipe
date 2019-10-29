@@ -1,18 +1,26 @@
 #to run flask in Sublime Text 3 > CTRL+SHIFT+T (to open PowerShell if installed) > 'env\Scripts\activate' > 'flask run'
 
 import os
+import env
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
-# app.secret_key = os.getenv('SECRET_KEY')
 
-# client = pymongo.MongoClient("mongodb+srv://semsmit:<password>@yourrecipe-ngnut.mongodb.net/YourRecipe?retryWrites=true&w=majority")
-# db = client.get_database('YourRecipe')
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["MONGO_DBNAME"] = os.getenv("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+
+mongo = PyMongo(app)
+
+
+
 
 @app.route('/')
 def index():
-    return render_template('base.html')
+    return render_template('base.html', recipes=mongo.db.recipes.find())
+
 
 
 # @app.route('/<name>')

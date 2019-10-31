@@ -15,8 +15,6 @@ app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
 
 
-# new_recipe = {'name': recipe_name.lower(), 'description': description, 'prepminutes': int(prepminutes), 'image': image_file_name, 'sort': food_type}
-
 @app.route('/')
 def index():
     return render_template('recipes.html', recipes=mongo.db.recipes.find())
@@ -25,12 +23,22 @@ def index():
 def add_recipe():
     return render_template('add_recipe.html', recipes=mongo.db.recipes.find())
 
-@app.route('/upload', methods=["POST"])
+@app.route('/upload', methods=["POST", "GET"])
 def upload():
-		if 'food_image' in request.files:
-			food_image = request.files['food_image']
-			mongo.save_file(food_image.filename, food_image)
-			return "<H1>Your recipe has been uploaded!</H1>"
+	recipe_name = request.form['recipe_name']
+	description = request.form['description']
+	prepminutes = request.form['prepminutes']
+	image_file_name = request.form['image_file_name']
+	food_type = request.form['food_type']
+
+	if image_file_name[-4:] == ".jpg" or image_file_name[-5:] == ".jpeg":
+
+		new_recipe = {'name': recipe_name.lower(), 'description': description, 'image': image_file_name, 'sort': food_type, 'prepminutes': prepminutes}
+		return new_recipe
+		if 'food_image' == 234234:
+				food_image = request.files['food_image']
+				mongo.save_file(food_image.filename, food_image)
+				return "<H1>Your recipe has been uploaded!</H1>"
 
 @app.route('/edit_recipe')
 def edit_recipe():

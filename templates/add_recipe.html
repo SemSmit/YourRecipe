@@ -2,7 +2,7 @@
 {% block content %}
 
 
-            	<form method="POST" action="/upload" enctype="multipart/form-data">
+            	<form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
 				    <div class="row">
 				        <div class="input-field col s12">
 				            <input required placeholder=" " id="recipe_name" name="recipe_name" type="text" class="validate">
@@ -11,25 +11,25 @@
 					        <div class="radiobuttons">
 					        <p class="sorts">
 						    <label>
-						      <input class="with-gap" value="Meat" name="food_type" type="radio" />
+						      <input class="with-gap" value="meat" name="food_type" type="radio" />
 						      <span>Meat</span>
 						    </label>
 						  	</p>
 						  	<p class="sorts">
 						    <label>
-						      <input class="with-gap" value="Fish" name="food_type" type="radio" />
+						      <input class="with-gap" value="fish" name="food_type" type="radio" />
 						      <span>Fish</span>
 						    </label>
 						  	</p>
 						  	<p class="sorts">
 						    <label>
-						      <input class="with-gap" value="Vegetarian" name="food_type" type="radio" />
+						      <input class="with-gap" value="vegetarian" name="food_type" type="radio" />
 						      <span>Vegetarian</span>
 						    </label>
 						  	</p>
 						  	<p class="sorts">
 						    <label>
-						      <input class="with-gap" value="Sweets" name="food_type" type="radio" />
+						      <input class="with-gap" value="sweets" name="food_type" type="radio" />
 						      <span>Sweets</span>
 						    </label>
 						  	</p>
@@ -39,8 +39,8 @@
 				            <label for="description">Recipe Description</label>
 				        </div>
 				        <div class="input-field col s12">
-				            <input required id="preptime" name="preptime" placeholder=" " type="number" class="validate">
-				            <label for="preptime">Preparation Time<sup> (in minutes)</sup></label>
+				            <input required id="prepminutes" name="prepminutes" placeholder=" " type="number" class="validate">
+				            <label for="prepminutes">Preparation Time<sup> (in minutes)</sup></label>
 				        </div>
 				        <div class="image-upload">
 				            <div class="file-field input-field">

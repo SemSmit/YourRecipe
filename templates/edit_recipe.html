@@ -1,29 +1,65 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" class="validate">
-          <label for="icon_telephone">Telephone</label>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Textarea</label>
-        </div>
-      </div>
-    </form>
-  </div>
+
+
+              <form method="POST" action="/upload" enctype="multipart/form-data">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required placeholder=" " id="recipe_name" name="recipe_name" type="text" class="validate">
+                    <label for="recipe_name">Recipe Name</label>
+                </div>
+                  <div class="radiobuttons">
+                  <p class="sorts">
+                <label>
+                  <input class="with-gap" value="Meat" name="food_type" type="radio" />
+                  <span>Meat</span>
+                </label>
+                </p>
+                <p class="sorts">
+                <label>
+                  <input class="with-gap" value="Fish" name="food_type" type="radio" />
+                  <span>Fish</span>
+                </label>
+                </p>
+                <p class="sorts">
+                <label>
+                  <input class="with-gap" value="Vegetarian" name="food_type" type="radio" />
+                  <span>Vegetarian</span>
+                </label>
+                </p>
+                <p class="sorts">
+                <label>
+                  <input class="with-gap" value="Sweets" name="food_type" type="radio" />
+                  <span>Sweets</span>
+                </label>
+                </p>
+              </div>
+                <div class="input-field col s12">
+                    <textarea required id="description" name="description" placeholder="" class="materialize-textarea validate" data-length="120"></textarea>
+                    <label for="description">Recipe Description</label>
+                </div>
+                <div class="input-field col s12">
+                    <input required id="preptime" name="preptime" placeholder=" " type="number" class="validate">
+                    <label for="preptime">Preparation Time<sup> (in minutes)</sup></label>
+                </div>
+                <div class="image-upload">
+                    <div class="file-field input-field">
+                      <label class="uploadlabel" for="food_image">Upload file or paste URL<sup> (.jpg / .jpeg)</sup></label>
+                        <div class="waves-effect waves-light btn-small">
+                            <span><i class="material-icons left">file_upload</i></span>
+                            <input type="file" id="food_image" name="food_image" accept="image/jpg,image/jpeg">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input required name="image_file_name" class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <textarea required id="textarea2" class="materialize-textarea validate"></textarea>
+                    <label for="textarea2">The recipe</label>
+                </div>
+            </div>
+            <div class="waves-effect waves-light btn-small editbutton"><span><i class="small left material-icons">edit</i><input value="" type="submit">Edit</span></div>
+            <div class="waves-effect waves-light btn-small deletebutton"><span><i class="small left material-icons">delete</i><input value="" type="submit">Delete</span></div>
+        </form>
 {% endblock %}

@@ -1,5 +1,5 @@
 body{
-	background-color: #FAEDCA;
+	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
@@ -8,7 +8,7 @@ body{
 }
 
 h1,h2,h3,h4,h5{
-	font-family: 'Lora', sans-serif;
+	/*font-family: 'Lora', sans-serif;*/
 	margin: 5px 0;
 }
 
@@ -28,7 +28,7 @@ h3{
 /*________________________HEADER__________________________*/
 
 header{
-	background-color: #C1DBB3;
+	/*background-color: #C1DBB3;*/
 	width: 100vw;
 	min-height: 60px;
 	border-bottom: 0.5px solid #2c8021;
@@ -40,10 +40,11 @@ header .title{
 	font-family: 'Nunito', sans-serif;
 	font-weight: 900;
     color: #2c8021;
+    text-align: center;
 }
 
 .sidenav{
-	background-color: #FAEDCA;
+	background-color: #ffffff;
 }
 
 .sidenav .user-view .circle {
@@ -84,8 +85,8 @@ header .title{
 	padding-left: 2rem;
     padding-top: 0.5rem;
 }
-.wrapper > div:nth-of-type(3){
-	padding-left: 3rem;
+.wrapper > div:nth-of-type(3) img{
+	padding-left: 50%;
 }
 
 .wrapper > div > *{
@@ -98,10 +99,40 @@ header .title{
 }
 
 
-
 /*________________________MAIN__________________________*/
 
+.sort{
+	min-height: 70px;
+	max-width: 180px;
+}
 
 .inner{
 	margin: 2rem 2rem;
+}
+
+.recipe-block{
+	box-shadow: 2px 2px 8px 0px #000000a8;
+	min-height: 110px;
+	margin-bottom: 1.5rem;
+	color: white;
+	padding: 1rem 1rem;
+	background-color: #65845b;
+	position: relative;
+}
+
+.prepminutes{
+	position: absolute;
+	opacity: 0.8;
+	top: 15px;
+	right: 15px;
+	font-size: 12px;
+}
+
+.prepminutes i{
+	vertical-align: text-top;
+    margin-right: 2px;
+}
+
+.recipe-block h1 {
+    margin-top: 15px;
 }

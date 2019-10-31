@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-	
+	<div>
+		<h2>Recipes</h2>
+		<div class="sort">
+			<div class="input-field">
+		    	<select class="icons">
+		      		<option value="" disabled selected>Choose your option</option>
+		      		<option value="" data-icon="../static/images/meat.png">Meat</option>
+		      		<option value="" data-icon="../static/images/fish.png">Fish</option>
+		    	  	<option value="" data-icon="../static/images/vegetarian.png">Vegetarian</option>
+		    	  	<option value="" data-icon="../static/images/sweets.png">Sweets</option>
+		    	</select>
+		    	<label>Sort by:</label>
+		  	</div>
+		</div>
+	</div>
 	{% for recipe in recipes %}
 		<div class="recipe-block">
-			<div></div>
 			<div>
 				<h1>{{recipe.name}}</h1>
+				<span class="prepminutes"><i class="material-icons tiny">access_time</i>{{recipe.prepminutes}}<span>min.</span></span>
 				<p>{{recipe.description}}</p>
 			</div>
 		</div>

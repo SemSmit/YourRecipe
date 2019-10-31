@@ -19,7 +19,13 @@ mongo = PyMongo(app)
 def index():
     return render_template('recipes.html', recipes=mongo.db.recipes.find())
 
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template('add_recipe.html', recipes=mongo.db.recipes.find())
 
+@app.route('/edit_recipe')
+def edit_recipe():
+    return render_template('edit_recipe.html', recipes=mongo.db.recipes.find())
 
 # @app.route('/<name>')
 # def hello(name):

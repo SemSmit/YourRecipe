@@ -8,8 +8,9 @@ body{
 }
 
 h1,h2,h3,h4,h5{
-	/*font-family: 'Lora', sans-serif;*/
+	font-family: 'Nunito', sans-serif;
 	margin: 5px 0;
+	color: #2c8021;
 }
 
 h1{
@@ -28,7 +29,7 @@ h3{
 /*________________________HEADER__________________________*/
 
 header{
-	/*background-color: #C1DBB3;*/
+	background-color: #ffffff;
 	width: 100vw;
 	min-height: 60px;
 	border-bottom: 0.5px solid #2c8021;
@@ -36,11 +37,12 @@ header{
 
 header .title{
 	margin: 0;
-	font-size: 20px;
-	font-family: 'Nunito', sans-serif;
-	font-weight: 900;
+    font-size: 31px;
+    font-family: 'Amatic SC', sans-serif;
+    font-weight: bolder;
     color: #2c8021;
     text-align: center;
+    letter-spacing: 5.3px;
 }
 
 .sidenav{
@@ -76,7 +78,7 @@ header .title{
 }
 
 .wrapper > div{
-	flex-basis: 33%;
+	flex-basis: 50%;
 	height: 100%;
 	display: inline-table;
 }
@@ -84,9 +86,14 @@ header .title{
 .wrapper > div:nth-of-type(1){
 	padding-left: 2rem;
     padding-top: 0.5rem;
+    flex-basis: 25%;
 }
+.wrapper > div:nth-of-type(3){
+    flex-basis: 25%;
+}
+
 .wrapper > div:nth-of-type(3) img{
-	padding-left: 50%;
+	padding-left: 27.5%;
 }
 
 .wrapper > div > *{
@@ -106,8 +113,12 @@ header .title{
 	max-width: 180px;
 }
 
-.inner{
-	margin: 2rem 2rem;
+.inner-recipes, .inner-404, .inner-addrecipe{
+	padding: 3rem 3rem;
+}
+
+.inner-home{
+	padding: 0rem 2rem;
 }
 
 .recipe-block{
@@ -155,7 +166,6 @@ header .title{
 
 .page404{
 	text-align: center;
-	margin-top: 5rem;
 	color: #57755d;
 }
 
@@ -250,4 +260,66 @@ input.valid:not([type]), input.valid:not([type]):focus, input.valid[type=text]:n
     left: 0;
     position: absolute;
     height: 100%;
+}
+
+.file-path{
+	pointer-events: none;
+}
+
+
+/*________________________Home__________________________*/
+.home-block{
+    min-height: 110px;
+    margin: 1rem 0;
+    padding: 1rem 1rem;
+    color: #2c8021;
+	border-bottom: 1px solid #82b751a1;
+    position: relative;
+}
+
+.home a:nth-of-type(3) .home-block{
+	border-bottom: none;
+}
+
+main{
+	display: flex;
+  	justify-content: center;
+  	align-items: center; 
+ }
+
+ .home-block h3{
+ 	font-size: 18px;
+ }
+
+ .home-block p{
+ 	color: #88ba5a;
+ }
+
+ .home-block .tiny{
+ 	font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    font-weight: bold;
+ }
+
+.home-icon{
+	height: 30px;
+    transform: translateY(8px);
+    margin-right: 10px;
+}
+
+/*________________________Footer__________________________*/
+footer{
+	width: 100vw;
+    min-height: 60px;
+    border-top: 0.5px solid #509647;
+    background-color: #2c8022;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+}
+footer p{
+	opacity: 0.8;
+	margin-top: 1.4rem;
 }

@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
-
+			<div class="inner-addrecipe">
             	<form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
 				    <div class="row">
 				        <div class="input-field col s12">
@@ -44,13 +43,13 @@
 				        </div>
 				        <div class="image-upload">
 				            <div class="file-field input-field">
-				            	<label class="uploadlabel" for="food_image">Upload file or paste URL<sup> (.jpg / .jpeg)</sup></label>
+				            	<label class="uploadlabel" for="food_image">Upload recipe image<sup> (.jpg / .jpeg)</sup></label>
 				                <div class="waves-effect waves-light btn-small">
 				                    <span><i class="material-icons left">file_upload</i></span>
-				                    <input type="file" id="food_image" name="food_image" accept="image/jpg,image/jpeg">
+				                    <input type="file" class="validate" id="food_image" name="food_image" accept="image/jpg,image/jpeg">
 				                </div>
 				                <div class="file-path-wrapper">
-				                    <input required name="image_file_name" class="file-path validate" type="text">
+				                    <input name="image_file_name" class="file-path" type="text">
 				                </div>
 				            </div>
 				        </div>
@@ -61,4 +60,5 @@
 				    </div>
 				    <div class="waves-effect waves-light btn-small"><span><i class="small left material-icons">send</i><input value="" type="submit">Submit</span></div>
 				</form>
+			</div>
 {% endblock %}

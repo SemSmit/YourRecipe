@@ -14,10 +14,13 @@ app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
-
 @app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/recipes')
 def index():
-    return render_template('recipes.html', recipes=mongo.db.recipes.find())
+    return render_template('recipes.html', recipes=mongo.db.recipes.find(), foodimg=mongo.db.fs.find())
 
 @app.route('/add_recipe')
 def add_recipe():
@@ -32,13 +35,11 @@ def upload():
 	food_type = request.form['food_type']
 
 	if image_file_name[-4:] == ".jpg" or image_file_name[-5:] == ".jpeg":
-
 		new_recipe = {'name': recipe_name.lower(), 'description': description, 'image': image_file_name, 'sort': food_type, 'prepminutes': prepminutes}
-		return new_recipe
-		if 'food_image' == 234234:
-				food_image = request.files['food_image']
-				mongo.save_file(food_image.filename, food_image)
-				return "<H1>Your recipe has been uploaded!</H1>"
+		food_image = request.files['food_image']
+		mongo.save_file(food_image.filename, food_image)
+		mongo.db.recipes.insert_one(new_recipe)
+		return redirect((url_for("index")))
 
 @app.route('/edit_recipe')
 def edit_recipe():

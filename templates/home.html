@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="inner-home">
+	<div class="home">
+		<a href="{{url_for('index')}}"><div class="home-block">
+			<h3>
+				<img class="home-icon" src="{{url_for('static', filename='images/recipes.png')}}">All recipes<i class="material-icons tiny">chevron_right</i>
+			</h3>
+			<p>See all the recipes shared by our users and decide on what to eat today!</p>
+		</div></a>
+		<a href="{{url_for('add_recipe')}}"><div class="home-block">
+			<h3>
+				<img class="home-icon" src="{{url_for('static', filename='images/addrecipe.png')}}">Add your own recipe<i class="material-icons tiny">chevron_right</i>
+			</h3>
+				<p>Want to share a recipe of your own? You've came to the right place!</p>
+		</div></a>
+		<a href="#!"><div class="home-block">
+			<h3>
+				<img class="home-icon" src="{{url_for('static', filename='images/randomrecipe.png')}}">Random recipe<i class="material-icons tiny">chevron_right</i>
+			</h3>
+			<p>No clue on what to eat today? Click here to see a random recipe.</p>
+		</div></a>
+	</div>
+{% endblock %}

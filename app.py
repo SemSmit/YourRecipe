@@ -20,11 +20,15 @@ def home():
 
 @app.route('/recipes')
 def index():
-    return render_template('recipes.html', recipes=mongo.db.recipes.find(), foodimg=mongo.db.fs.find())
+    return render_template('recipes.html', methods=["POST", "GET"], recipes=mongo.db.recipes.find())
 
 @app.route('/add_recipe')
 def add_recipe():
     return render_template('add_recipe.html', recipes=mongo.db.recipes.find())
+
+@app.route('/file/<filename>', methods=["POST", "GET"])
+def file(filename):
+	return mongo.send_file(filename)
 
 @app.route('/upload', methods=["POST", "GET"])
 def upload():
@@ -48,10 +52,6 @@ def edit_recipe():
 @app.errorhandler(404)
 def not_found(e):
     return render_template("404.html")
-
-@app.route('/file/<filename>')
-def file(filename):
-	return mongo.send_file(filename)
 
 
 if __name__ == '__main__':

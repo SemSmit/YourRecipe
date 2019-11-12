@@ -2,6 +2,7 @@
 
 import os
 import env
+import random
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -16,15 +17,15 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+	return render_template('home.html')
 
 @app.route('/recipes')
 def index():
-    return render_template('recipes.html', methods=["POST", "GET"], recipes=mongo.db.recipes.find())
+	return render_template('recipes.html', methods=["POST", "GET"], recipes=mongo.db.recipes.find())
 
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('add_recipe.html', recipes=mongo.db.recipes.find())
+	return render_template('add_recipe.html', recipes=mongo.db.recipes.find())
 
 @app.route('/file/<filename>', methods=["POST", "GET"])
 def file(filename):
@@ -47,14 +48,28 @@ def upload():
 
 @app.route('/edit_recipe')
 def edit_recipe():
-    return render_template('edit_recipe.html', recipes=mongo.db.recipes.find())
+	return render_template('edit_recipe.html', recipes=mongo.db.recipes.find())
+
+@app.route('/recipe/<recipeid>', methods=["POST", "GET"])
+def recipe(recipeid):
+	recipeid = str(recipeid)
+	ObjectIdKey = ObjectId(recipeid)
+	return render_template('recipe_page.html', recipe = mongo.db.recipes.find_one({ "_id" : ObjectIdKey } ))
+
+
+@app.route('/randomrecipe', methods=["POST", "GET"])
+def randomrecipe():
+	random_recipe_name = mongo.db.recipes.aggregate([{ "$sample": { "size": 1 } }])
+	return "{}".format(random_recipe_name)
+
+
 
 @app.errorhandler(404)
 def not_found(e):
-    return render_template("404.html")
+	return render_template("404.html")
 
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+	app.run(host=os.environ.get('IP'),
+			port=int(os.environ.get('PORT')),
+			debug=True)

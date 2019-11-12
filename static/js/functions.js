@@ -35,5 +35,10 @@ $(document).ready(function(){
 	});
 	
 
-});
+	$("#backbutton").on('click', function(){
+		history.back();
+	});
 
+
+
+});

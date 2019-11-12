@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="inner-recipe-page">
-	<h1>{{recipe.name}}</h1>
+	<a id="backbutton" class="waves-effect waves-light btn"><i class="material-icons">arrow_back</i></a>
+	<h1>{{recipe.name.title()}}</h1>
+	<p>{{recipe.description}}</p>
+	<img class="recipe-image" alt='picture of the recipe' src="{{url_for('file', filename=recipe.image)}}">
+	<span class="prepminutes"><i class="material-icons tiny">access_time</i>{{recipe.prepminutes}}<span>min.</span></span>
+	<p>{{recipe.the_recipe}}</p>
+</div>
 {% endblock %}
 

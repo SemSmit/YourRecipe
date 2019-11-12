@@ -38,9 +38,10 @@ def upload():
 	prepminutes = request.form['prepminutes']
 	image_file_name = request.form['image_file_name']
 	food_type = request.form['food_type']
+	the_recipe = request.form['the_recipe']
 
 	if image_file_name[-4:] == ".jpg" or image_file_name[-5:] == ".jpeg":
-		new_recipe = {'name': recipe_name.lower(), 'description': description, 'image': image_file_name, 'sort': food_type, 'prepminutes': prepminutes}
+		new_recipe = {'name': recipe_name.lower(), 'description': description, 'image': image_file_name, 'sort': food_type, 'prepminutes': prepminutes, 'the_recipe': the_recipe}
 		food_image = request.files['food_image']
 		mongo.save_file(food_image.filename, food_image)
 		mongo.db.recipes.insert_one(new_recipe)
@@ -59,9 +60,10 @@ def recipe(recipeid):
 
 @app.route('/randomrecipe', methods=["POST", "GET"])
 def randomrecipe():
-	random_recipe_name = mongo.db.recipes.aggregate([{ "$sample": { "size": 1 } }])
-	return "{}".format(random_recipe_name)
-
+    count = mongo.db.recipes.count()
+    random_recipe = mongo.db.recipes.find()[random.randrange(count)]
+    random_recipe_id = random_recipe['_id']
+    return recipe(random_recipe_id)
 
 
 @app.errorhandler(404)

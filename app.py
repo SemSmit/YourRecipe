@@ -1,7 +1,7 @@
 #to run, go to your local virtual environment in your terminal and type 'env\Scripts\activate', then go to ......./YourRecipe and type 'flask run'.
 
 import os
-import env
+# import env
 import random
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo

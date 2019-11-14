@@ -118,7 +118,7 @@ header .title{
 	max-width: 180px;
 }
 
-.inner-recipes, .inner-404, .inner-addrecipe, .inner-editrecipe{
+.inner-recipes, .inner-404, .inner-addrecipe, .inner-editrecipe, .inner-delete{
 	padding: 3rem 3rem;
 }
 
@@ -141,7 +141,7 @@ header .title{
     padding: 0px 15px;
     line-height: 30px;
     height: 28px;
-    margin-left: 50%;
+    margin-left: 52%;
     font-weight: 400;
     margin-top: -7%;
 }
@@ -149,13 +149,15 @@ header .title{
 .prepminutes{
 	position: absolute;
     opacity: 0.8;
-    top: -13px;
+    bottom: -20px;
     right: 0px;
     font-size: 12px;
 }
 
-.recipe-text{
+.imagewrapper a{
 	position: relative;
+	color: white;
+	text-decoration: none;
 }
 
 .prepminutes i{
@@ -310,6 +312,8 @@ main{
 	display: flex;
   	justify-content: center;
   	align-items: center; 
+  	margin: 0 auto;
+  	max-width: 1200px;
  }
 
  .home-block h3{
@@ -376,6 +380,35 @@ a#backbutton {
     border: solid 3px #bdd7a4;
 }
 
+/*________________________Delete__________________________*/
+
+.nobutton {
+    background-color: #ca0000;
+}
+.yesbutton{
+	background-color: #29ce00;
+}
+.yesbutton,
+.nobutton{
+	font-size: 12px;
+	width: 80%;
+	margin: 10px 0;
+	display: inline-block;
+}
+
+.inner-delete{
+	text-align: center;
+}
+
+.inner-delete h1{
+	margin-bottom: 5vh;
+}
+
+.inner-delete h1 span{
+	color: #ff930d;
+    font-weight: bold;
+}
+
 /*________________________Footer__________________________*/
 footer{
 	width: 100vw;
@@ -389,4 +422,130 @@ footer{
 footer p{
 	opacity: 0.8;
 	margin-top: 1.4rem;
+}
+
+@media only screen and (min-width: 768px){
+	.blockparent{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.recipe-block{
+		flex-basis: 47%;
+		margin-bottom: 3rem;
+		position: relative;
+	}
+
+	.recipe-block .btn {
+	    background-color: #476b4f;
+	    position: absolute;
+	    right: 20px;
+	    bottom: 15px;
+	}
+
+	.recipe-text p{
+		margin-bottom: 40px;
+	}
+
+	.recipe-header {
+	    display: inline-block;	
+	    margin-right: 31%;
+	    margin-bottom: 2rem;
+	}
+	.sort{
+		display: inline-block;
+		max-width: 250px;
+	}
+
+	.home-block{
+		padding: 3rem 1rem;
+	}
+
+	a#backbutton {
+    	left: 3.7%;
+    	top: 8%;
+	}
+
+	.inner-recipe-page{
+		padding: 4rem 10rem;
+	}
+
+	.inner-addrecipe{
+		font-size: 40px;
+	}
+
+	#editrecipebutton {
+	    height: 30px;
+	    font-size: 14px;
+	    line-height: 30px;
+	    width: 35%;
+	    text-align: right;
+	    margin-left: 63%;
+	}
+
+	.imagewrapper{
+		min-height: 230px;
+	}
+
+	.inner-recipe-page .recipe-image {
+    	width: 100%;
+    	height: auto;
+    	max-height: 600px;
+	}
+
+	.inner-recipe-page p{
+		font-size: 18px;
+	}
+
+	.sorts{
+		margin: 1rem 0;
+	}
+
+	.yesbutton, .nobutton {
+	    width: 50%;
+	}
+
+}
+
+@media only screen and (min-width: 1024px){
+	.recipe-block{
+		flex-basis: 31%;
+		margin-bottom: 3rem;
+		position: relative;
+	}
+
+	.imagewrapper{
+		min-height: 300px;
+	}
+
+	.home-block{
+		padding: 2rem 1rem;
+	}
+
+	a#backbutton {
+    	left: 2.9%;
+    	top: 10%;
+    	height: 30px;
+    	line-height: 30px;
+    	padding: 0 11px;
+	}
+
+	.inner-recipe-page .recipe-image {
+    	max-width: 40%;
+	    max-height: 600px;
+	    float: right;
+	    margin: 1.5rem;
+	    margin-top: 3rem;
+	}
+
+	.inner-recipe-page h1{
+		font-size: 40px;
+	}
+
+	#editrecipebutton{
+		margin-left: 0;
+		width: 23%;
+		text-align: center;
+	}
 }

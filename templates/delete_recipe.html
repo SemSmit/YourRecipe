@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="inner-delete">
+<div>
+  	<h1>Do you really want to delete <span>{{recipe.name.title()}}</span>?</h1>
+  	<form method="POST" action="{{ url_for('delete_confirm', object_id = recipe._id) }}" enctype="multipart/form-data">
+  		<div class="waves-effect waves-light btn-small yesbutton"><span><i class="small left material-icons">check</i><input name="button" value=" " type="submit">Yes, delete recipe</span></div>
+  	</form>
+	    <div class="waves-effect waves-light btn-small nobutton"><span><i class="small left material-icons">clear</i><input name="button" onclick="history.back();" value="  " type="submit">No, keep recipe</span></div>
+</div>
+</div>
+{% endblock %}

@@ -1,66 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
 
-          <div class="inner-addrecipe">
-              <form method="POST" action="/upload" enctype="multipart/form-data">
+          <div class="inner-editrecipe">
+              <form method="POST" action="{{ url_for('edit_or_delete', object_id = recipe._id) }}" enctype="multipart/form-data">
             <div class="row">
-                <div class="input-field col s12">
-                    <input required placeholder=" " id="recipe_name" name="recipe_name" type="text" class="validate">
+              <div class="input-field col s12">
+                    <input required placeholder=" " value="{{recipe.name.title()}}" id="recipe_name" name="recipe_name" type="text" class="validate">
                     <label for="recipe_name">Recipe Name</label>
                 </div>
                   <div class="radiobuttons">
                   <p class="sorts">
                 <label>
-                  <input class="with-gap" value="Meat" name="food_type" type="radio" />
+                  <input class="with-gap" value="meat" name="food_type" type="radio" {% if recipe.sort == 'meat' %} checked {% endif %} />
                   <span>Meat</span>
                 </label>
                 </p>
                 <p class="sorts">
                 <label>
-                  <input class="with-gap" value="Fish" name="food_type" type="radio" />
+                  <input class="with-gap" value="fish" name="food_type" type="radio" {% if recipe.sort == 'fish' %} checked {% endif %} />
                   <span>Fish</span>
                 </label>
                 </p>
                 <p class="sorts">
                 <label>
-                  <input class="with-gap" value="Vegetarian" name="food_type" type="radio" />
+                  <input class="with-gap" value="vegetarian" name="food_type" type="radio" {% if recipe.sort == 'vegetarian' %} checked {% endif %}/>
                   <span>Vegetarian</span>
                 </label>
                 </p>
                 <p class="sorts">
                 <label>
-                  <input class="with-gap" value="Sweets" name="food_type" type="radio" />
+                  <input class="with-gap" value="sweets" name="food_type" type="radio" {% if recipe.sort == 'sweets' %} checked {% endif %}/>
                   <span>Sweets</span>
                 </label>
                 </p>
               </div>
                 <div class="input-field col s12">
-                    <textarea required id="description" name="description" placeholder="" class="materialize-textarea validate" data-length="120"></textarea>
+                    <textarea required id="description" name="description" placeholder="" class="materialize-textarea validate" data-length="120">{{recipe.description}}</textarea>
                     <label for="description">Recipe Description</label>
                 </div>
                 <div class="input-field col s12">
-                    <input required id="preptime" name="preptime" placeholder=" " type="number" class="validate">
-                    <label for="preptime">Preparation Time<sup> (in minutes)</sup></label>
+                    <input required id="prepminutes" value="{{recipe.prepminutes}}" name="prepminutes" placeholder=" " type="number" class="validate">
+                    <label for="prepminutes">Preparation Time<sup> (in minutes)</sup></label>
                 </div>
                 <div class="image-upload">
                     <div class="file-field input-field">
-                      <label class="uploadlabel" for="food_image">Upload file or paste URL<sup> (.jpg / .jpeg)</sup></label>
+                      <label class="uploadlabel" for="food_image">Upload recipe image<sup> (.jpg / .jpeg)</sup></label>
                         <div class="waves-effect waves-light btn-small">
                             <span><i class="material-icons left">file_upload</i></span>
-                            <input type="file" id="food_image" name="food_image" accept="image/jpg,image/jpeg">
+                            <input type="file" class="validate" id="food_image" name="food_image" accept="image/jpg,image/jpeg">
                         </div>
                         <div class="file-path-wrapper">
-                            <input required name="image_file_name" class="file-path validate" type="text">
+                            <input name="image_file_name" value="{{recipe.image}}" class="file-path" type="text">
                         </div>
                     </div>
                 </div>
                 <div class="input-field col s12">
-                    <textarea required id="textarea2" class="materialize-textarea validate"></textarea>
+                    <textarea required name="the_recipe" id="textarea2" class="materialize-textarea validate">{{recipe.the_recipe}}</textarea>
                     <label for="textarea2">The recipe</label>
                 </div>
             </div>
-            <div class="waves-effect waves-light btn-small editbutton"><span><i class="small left material-icons">edit</i><input value="" type="submit">Edit</span></div>
-            <div class="waves-effect waves-light btn-small deletebutton"><span><i class="small left material-icons">delete</i><input value="" type="submit">Delete</span></div>
+            <div class="waves-effect waves-light btn-small editbutton"><span><i class="small left material-icons">edit</i><input name="button" value=" " type="submit">Edit</span></div>
+            <div class="waves-effect waves-light btn-small deletebutton"><span><i class="small left material-icons">delete</i><input name="button" value="  " type="submit">Delete</span></div>
         </form>
       </div>
 {% endblock %}

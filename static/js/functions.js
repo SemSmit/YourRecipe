@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$('.sidenav').sidenav();
 	$('select').formSelect();
 	M.updateTextFields();
@@ -38,7 +39,5 @@ $(document).ready(function(){
 	$("#backbutton").on('click', function(){
 		history.back();
 	});
-
-
 
 });

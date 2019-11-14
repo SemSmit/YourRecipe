@@ -7,6 +7,7 @@
 	<img class="recipe-image" alt='picture of the recipe' src="{{url_for('file', filename=recipe.image)}}">
 	<span class="prepminutes"><i class="material-icons tiny">access_time</i>{{recipe.prepminutes}}<span>min.</span></span>
 	<p>{{recipe.the_recipe}}</p>
+	<a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" id="editrecipebutton" class="waves-effect waves-light btn"><i class="material-icons right tiny">edit</i>Edit recipe</a>
 </div>
 {% endblock %}
 

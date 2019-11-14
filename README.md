@@ -84,7 +84,7 @@ The changes made were commited through git and then later pushed to (https://git
 Heroku automatically retrieves these files when pushed and then builds the app on heroku.
 The MONGO_URI, MONGO_DBNAME and SECRET_KEY are stored in "env.py".
 "env.py" is ignorded by GIT and won't be pushed/shown to the public.
-In Heroku I set these values in the config vars, so it can run properly.
+In Heroku I set these values in the settings > config vars, so it can run properly.
 
 I deployed the site using Heroku.
 The site can be found on: (https://yourrecipe.herokuapp.com/)

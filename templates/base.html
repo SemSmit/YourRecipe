@@ -1,48 +1,50 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>YourRecipe</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Nunito:200,400,600,700,900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
-    </head>
-    <body>
-        <header>
-            <div class="wrapper">
-                <div>
-                  <ul id="slide-out" class="sidenav">
-                    <li>
-                        <div class="user-view">
-                            <a href="{{url_for('home')}}"><img class="circle" src="../static/images/YourRecipeLogo.png"></a>
-                            <span class="name">YourRecipe</span>
-                        </div>
-                    </li>
-                    <li><a class="waves-effect" href="{{url_for('index')}}">Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                    <li><a class="waves-effect" href="{{url_for('randomrecipe')}}">Random Recipe</a></li>
-                    <li><div class="divider"></div></li>
-                  </ul>
-                  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                </div>
-                <div><a href="{{url_for('home')}}"><p class="title">YourRecipe</p></a></div>
-                <div><a href="{{url_for('home')}}"><img class="headerimg" src="../static/images/YourRecipeLogo.png"></a></div>
-            </div>
-        </header>
-        <main>
-            {% block content %}
-            {% endblock %}
-        </main>
-        <footer>
-            <p>YourRecipe®</p>
-        </footer>        
-
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="{{url_for('static', filename='js/functions.js')}}"></script>
-            
-    </body>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
+   <title>YourRecipe</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Nunito:200,400,600,700,900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+   <header>
+      <div class="wrapper">
+         <div>
+            <ul id="slide-out" class="sidenav">
+               <li>
+                  <div class="user-view">
+                     <a href="{{url_for('home')}}"><img class="circle" src="../static/images/YourRecipeLogo.png"></a>
+                     <span class="name">YourRecipe</span>
+                  </div>
+               </li>
+               <li><a class="waves-effect" href="{{url_for('index')}}">Recipes</a></li>
+               <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+               <li><a class="waves-effect" href="{{url_for('randomrecipe')}}">Random Recipe</a></li>
+               <li>
+                  <div class="divider"></div>
+               </li>
+            </ul>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+         </div>
+         <div>
+            <a href="{{url_for('home')}}">
+               <p class="title">YourRecipe</p>
+            </a>
+         </div>
+         <div><a href="{{url_for('home')}}"><img class="headerimg" src="../static/images/YourRecipeLogo.png"></a></div>
+      </div>
+   </header>
+   <main>
+      {% block content %}
+      {% endblock %}
+   </main>
+   <footer>
+      <p>YourRecipe®</p>
+   </footer>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <script src="{{url_for('static', filename='js/functions.js')}}"></script>
+</body>
 </html>

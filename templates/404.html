@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="inner-404">
-<div class="page404">
-  	<h1>Oops! Looks like the page doesn't exist (anymore)</h1> 
-  	<a href="{{url_for('index')}}"><p>Click Here</a> - To go back to the Home Page.</p> 
-</div>
+   <div class="page404">
+      <h1>Oops! Looks like the page doesn't exist (anymore)</h1>
+      <a href="{{url_for('index')}}">
+         <p>Click Here
+      </a>
+      - To go back to the Home Page.</p> 
+   </div>
 </div>
 {% endblock %}

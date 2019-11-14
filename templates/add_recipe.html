@@ -1,64 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
-			<div class="inner-addrecipe">
-            	<form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
-				    <div class="row">
-				        <div class="input-field col s12">
-				            <input required placeholder=" " id="recipe_name" name="recipe_name" type="text" class="validate">
-				            <label for="recipe_name">Recipe Name</label>
-				        </div>
-					        <div class="radiobuttons">
-					        <p class="sorts">
-						    <label>
-						      <input class="with-gap" value="meat" name="food_type" type="radio" />
-						      <span>Meat</span>
-						    </label>
-						  	</p>
-						  	<p class="sorts">
-						    <label>
-						      <input class="with-gap" value="fish" name="food_type" type="radio" />
-						      <span>Fish</span>
-						    </label>
-						  	</p>
-						  	<p class="sorts">
-						    <label>
-						      <input class="with-gap" value="vegetarian" name="food_type" type="radio" />
-						      <span>Vegetarian</span>
-						    </label>
-						  	</p>
-						  	<p class="sorts">
-						    <label>
-						      <input class="with-gap" value="sweets" name="food_type" type="radio" />
-						      <span>Sweets</span>
-						    </label>
-						  	</p>
-					  	</div>
-				        <div class="input-field col s12">
-				            <textarea required id="description" name="description" placeholder="" class="materialize-textarea validate" data-length="120"></textarea>
-				            <label for="description">Recipe Description</label>
-				        </div>
-				        <div class="input-field col s12">
-				            <input required id="prepminutes" name="prepminutes" placeholder=" " type="number" class="validate">
-				            <label for="prepminutes">Preparation Time<sup> (in minutes)</sup></label>
-				        </div>
-				        <div class="image-upload">
-				            <div class="file-field input-field">
-				            	<label class="uploadlabel" for="food_image">Upload recipe image<sup> (.jpg / .jpeg)</sup></label>
-				                <div class="waves-effect waves-light btn-small">
-				                    <span><i class="material-icons left">file_upload</i></span>
-				                    <input type="file" class="validate" id="food_image" name="food_image" accept="image/jpg,image/jpeg">
-				                </div>
-				                <div class="file-path-wrapper">
-				                    <input name="image_file_name" class="file-path" type="text">
-				                </div>
-				            </div>
-				        </div>
-				        <div class="input-field col s12">
-				            <textarea required name="the_recipe" id="textarea2" class="materialize-textarea validate"></textarea>
-				            <label for="textarea2">The recipe</label>
-				        </div>
-				    </div>
-				    <div class="waves-effect waves-light btn-small"><span><i class="small left material-icons">send</i><input value="" type="submit">Submit</span></div>
-				</form>
-			</div>
+<div class="inner-addrecipe">
+   <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+      <div class="row">
+         <div class="input-field col s12">
+            <input required placeholder=" " id="recipe_name" name="recipe_name" type="text" class="validate">
+            <label for="recipe_name">Recipe Name</label>
+         </div>
+         <div class="radiobuttons">
+            <p class="sorts">
+               <label>
+               <input class="with-gap" value="meat" name="food_type" type="radio" />
+               <span>Meat</span>
+               </label>
+            </p>
+            <p class="sorts">
+               <label>
+               <input class="with-gap" value="fish" name="food_type" type="radio" />
+               <span>Fish</span>
+               </label>
+            </p>
+            <p class="sorts">
+               <label>
+               <input class="with-gap" value="vegetarian" name="food_type" type="radio" />
+               <span>Vegetarian</span>
+               </label>
+            </p>
+            <p class="sorts">
+               <label>
+               <input class="with-gap" value="sweets" name="food_type" type="radio" />
+               <span>Sweets</span>
+               </label>
+            </p>
+         </div>
+         <div class="input-field col s12">
+            <textarea required id="description" name="description" placeholder="" class="materialize-textarea validate" data-length="120"></textarea>
+            <label for="description">Recipe Description</label>
+         </div>
+         <div class="input-field col s12">
+            <input required id="prepminutes" name="prepminutes" placeholder=" " type="number" class="validate">
+            <label for="prepminutes">Preparation Time<sup> (in minutes)</sup></label>
+         </div>
+         <div class="image-upload">
+            <div class="file-field input-field">
+               <label class="uploadlabel" for="food_image">Upload recipe image<sup> (.jpg / .jpeg)</sup></label>
+               <div class="waves-effect waves-light btn-small">
+                  <span><i class="material-icons left">file_upload</i></span>
+                  <input type="file" class="validate" id="food_image" name="food_image" accept="image/jpg,image/jpeg">
+               </div>
+               <div class="file-path-wrapper">
+                  <input name="image_file_name" class="file-path" type="text">
+               </div>
+            </div>
+         </div>
+         <div class="input-field col s12">
+            <textarea required name="the_recipe" id="textarea2" class="materialize-textarea validate"></textarea>
+            <label for="textarea2">The recipe</label>
+         </div>
+      </div>
+      <div class="waves-effect waves-light btn-small"><span><i class="small left material-icons">send</i><input value="" type="submit">Submit</span></div>
+   </form>
+</div>
 {% endblock %}

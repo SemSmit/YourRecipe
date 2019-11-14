@@ -1,36 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="inner-recipes">
-	<div>
-		<h2 class="recipe-header">Recipes</h2>
-		<div class="sort">
-			<div class="input-field">
-		    	<select id="sortselect" class="icons" method="GET">
-		      		<option value="all" selected>All recipes</option>
-		      		<option value="meat" data-icon="../static/images/meat.png">Meat</option>
-		      		<option value="fish" data-icon="../static/images/fish.png">Fish</option>
-		    	  	<option value="vegetarian" data-icon="../static/images/vegetarian.png">Vegetarian</option>
-		    	  	<option value="sweets" data-icon="../static/images/sweets.png">Sweets</option>
-		    	</select>
-		    	<label>Filter by:</label>
-		  	</div>
-		</div>
-	</div>
-
-
-	
-	<div class="blockparent">
-	{% for recipe in recipes|reverse %}
-		<div class="recipe-block {{recipe.sort}}">
-			<div class="imagewrapper"><a href="{{url_for('recipe', recipeid=recipe._id)}}"><img class="recipe-image" alt='picture of the recipe' src="{{url_for('file', filename=recipe.image)}}"><span class="prepminutes"><i class="material-icons tiny">access_time</i>{{recipe.prepminutes}}<span>min.</span></span></a></div>
-			<div class="recipe-text">
-				<h1>{{recipe.name.title()}}</h1>
-				<p>{{recipe.description}}</p>
-			</div>
-			<a href="{{url_for('recipe', recipeid=recipe._id)}}" class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Read more</a>
-		</div>
-	{% endfor %}
-	</div>
-	</div>
+   <div>
+      <h2 class="recipe-header">Recipes</h2>
+      <div class="sort">
+         <div class="input-field">
+            <select id="sortselect" class="icons" method="GET">
+               <option value="all" selected>All recipes</option>
+               <option value="meat" data-icon="../static/images/meat.png">Meat</option>
+               <option value="fish" data-icon="../static/images/fish.png">Fish</option>
+               <option value="vegetarian" data-icon="../static/images/vegetarian.png">Vegetarian</option>
+               <option value="sweets" data-icon="../static/images/sweets.png">Sweets</option>
+            </select>
+            <label>Filter by:</label>
+         </div>
+      </div>
+   </div>
+   <div class="blockparent">
+      {% for recipe in recipes|reverse %}
+      <div class="recipe-block {{recipe.sort}}">
+         <div class="imagewrapper"><a href="{{url_for('recipe', recipeid=recipe._id)}}"><img class="recipe-image" alt='picture of the recipe' src="{{url_for('file', filename=recipe.image)}}"><span class="prepminutes"><i class="material-icons tiny">access_time</i>{{recipe.prepminutes}}<span>min.</span></span></a></div>
+         <div class="recipe-text">
+            <h1>{{recipe.name.title()}}</h1>
+            <p>{{recipe.description}}</p>
+         </div>
+         <a href="{{url_for('recipe', recipeid=recipe._id)}}" class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Read more</a>
+      </div>
+      {% endfor %}
+   </div>
+</div>
 {% endblock %}
-
